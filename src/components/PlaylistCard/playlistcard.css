@@ -1,0 +1,41 @@
+
+.card_body_yt{
+    position: relative;
+}
+
+.custom_play_icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 35%;
+    left: 39%;
+    display: none !important;
+}
+
+
+.favorite-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite-title {
+    height: 50px !important;
+    display: grid;
+    align-items: center;
+}
+
+.favorite-icon button {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    border: none;
+    background: #FEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite-icon_color {
+    color: rgb(255, 4, 0);
+}

@@ -1,0 +1,22 @@
+.nodata_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+
+}
+
+.nodata_inner {
+    width: 400px !important;
+    height: 400px;
+}
+
+.nodata_inner h3 {
+    color: #797c7f;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 7px;
+}

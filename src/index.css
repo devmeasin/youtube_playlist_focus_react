@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Operator Mono', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.custom_react_icon {
+  width: 25px;
+  height: 25px;
+}
+
+.Toastify {
+  position: absolute;
+  z-index: 999999;
+}
+
+.link_tag_design {
+    color: #4f4d4d;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    display: grid;
+    transition: 0.3s ease-in-out;
+}
+
+.link_tag_design:hover {
+  color: #f8007c;
+}
+
+code {
+  font-family: 'Inter' !important ;
+}
