@@ -27,7 +27,7 @@ const PlaylistCard = ({play_list_item}) => {
     }
 
     return (
-        <Link to={`/playlist/${play_list_item.id}`}>
+        <Link to={`/playlist/watch/${play_list_item.id}`}>
             <Card isPressable>
                 <Card.Body css={{ p: 0 }} className="card_body_yt">
                     <Card.Image

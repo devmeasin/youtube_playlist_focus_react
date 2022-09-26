@@ -1,54 +1,37 @@
+import PlaylistItem from '../pages/PlaylistItem';
+import Favorite from '../pages/Favorite';
+import Recent from '../pages/Recent';
+import PlaylistDetails from '../pages/PlaylistDetails';
+import Error from "../pages/Error"
+
+
+
 export const router = [
     
 	{
-		path: '/onboard',
-		component: Onboard
-	},
-
-	{
-		path: '/reset-password',
-		component: ResetPassword
+		path: '/',
+		component: PlaylistItem
 	},
 	{
 		path: '/home',
-		component: Home
+		component: PlaylistItem
 	},
 	{
-		path: '/notification',
-		component: Notifications
-	},
-	{
-		path: '/support',
-		component: Supports
-	},
-	{
-		path: '/products/:id',
-		component: ProductDetails
-	},
-	{
-		path: '/products/:id',
-		component: ProductDetails
-	},
-	{
-		path: '/checkout',
-		component: Checkout
-	},
-	{
-		path: '/order-details/:id',
-		component: OrderSummery
-	},
-	
-	{
-		path: '/edit-profile',
-		component: EditProfile
-	},
-	{
-		path: '/cart',
-		component: Cart
+		path: '/recent',
+		component: Recent
 	},
 	{
 		path: '/favorite',
 		component: Favorite
 	},
+	{
+		path: '/playlist/watch/:id',
+		component: PlaylistDetails
+	},
+	{
+		path: '*',
+		component: Error
+	},
 
+	
 ]
