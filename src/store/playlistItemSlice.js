@@ -1,7 +1,7 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import {getPlaylist} from '../api';
-import {STATUS} from '../utils/config/status';
-import {setItemsStorage, getItemsStorage} from '../utils/Storage';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getPlaylist } from '../api';
+import { STATUS } from '../utils/config/status';
+import { setItemsStorage, getItemsStorage } from '../utils/Storage';
 
 const items = getItemsStorage('play_list_item');
 
@@ -30,6 +30,12 @@ export const playlistItemSlice = createSlice({
             setItemsStorage('play_list_item', state.play_list_item);
         },
 
+        removePlaylist: (state, actions) => {
+            const id = actions.payload;
+            delete state.play_list_item[id];
+            setItemsStorage('play_list_item', state.play_list_item);
+        },
+
         changeStatus: (state, actions) => {
             const data = actions.payload;
             state.status = data;
@@ -39,7 +45,7 @@ export const playlistItemSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {addPlaylist, changeStatus} = playlistItemSlice.actions;
+export const { addPlaylist, removePlaylist, changeStatus } = playlistItemSlice.actions;
 
 export default playlistItemSlice.reducer;
 

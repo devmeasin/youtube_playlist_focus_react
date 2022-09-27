@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card, Text, Grid } from "@nextui-org/react";
 import { Link } from 'react-router-dom';
-import { RiHeart3Fill, RiHeart3Line, RiPlayCircleLine } from "react-icons/ri";
+import { RiHeart3Fill, RiHeart3Line, RiPlayCircleLine, RiCloseFill } from "react-icons/ri";
+import { removePlaylist } from '../../store/playlistItemSlice';
 import { addFavorite, removeFavorite } from '../../store/favoriteItemSlice';
-import { recentItemToggle } from '../../store/recentItemSlice.js';
+import { recentItemToggle , recentItemRemove } from '../../store/recentItemSlice.js';
 import './playlistcard.css';
 
 
@@ -28,6 +29,15 @@ const PlaylistCard = ({ play_list_item }) => {
         dispatch(removeFavorite(id));
     };
 
+    // remove Favorite
+    const removePlaylistItem = (event, id) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dispatch(removePlaylist(id));
+        removeFavoriteItem(event, id);
+        removeRecentItem(id);
+    };
+
     const addRecentItem = () => {
         let hasRecent = false;
         recent_items.map((item) => {
@@ -40,9 +50,16 @@ const PlaylistCard = ({ play_list_item }) => {
         }
     };
 
+    const removeRecentItem = (id) => {
+        const filterData = recent_items.filter(item => item !== id);
+        console.log('filter data',filterData)
+        dispatch(recentItemRemove(filterData));
+    }
+
+
     return (
         <Link to={`/playlist/watch/${play_list_item.id}`}>
-            <Card isPressable onClick={addRecentItem}>
+            <Card isPressable onClick={addRecentItem} className="card_wrapper_yt">
                 <Card.Body css={{ p: 0 }} className="card_body_yt">
                     <Card.Image
                         src={play_list_item?.thumbnails}
@@ -52,7 +69,17 @@ const PlaylistCard = ({ play_list_item }) => {
                         height="100%"
                         alt={play_list_item?.playlistTitle}
                     />
-                    <RiPlayCircleLine className="custom_play_icon favorite-icon_color" />
+                    <div className="custom_delete_icon_wrapper"
+                        onClick={(event) => removePlaylistItem(event, play_list_item?.id)}>
+                        <div className="custom_delete_icon">
+                            <RiCloseFill className="delete_icon" />
+                        </div>
+                    </div>
+
+                    <RiPlayCircleLine className="custom_play_icon" />
+
+                    <div className="card_body_overly"></div>
+
                 </Card.Body>
                 <Card.Footer css={{ justifyItems: "flex-start" }}>
                     <Grid.Container gap={1} justify="center">
@@ -79,7 +106,7 @@ const PlaylistCard = ({ play_list_item }) => {
                     </Grid.Container>
                 </Card.Footer>
             </Card>
-        </Link>
+        </Link >
     )
 }
 
