@@ -1,0 +1,35 @@
+/* .watchScreen__player__wrapper {
+   position: "relative";
+   padding-left: "56.25%";
+   padding-top: 25;
+   height: 0;
+ }
+
+
+.watchScreen__player {
+   position: "absolute";
+   top: 0;
+   left: 0;
+   width: "100%";
+   height: "100%"
+} */
+
+
+
+
+.watchScreen__player__wrapper {
+   border-radius: 10px;
+   overflow: hidden;
+   width: 100%;
+   height: 100%;
+
+}
+
+.loading_yt_video {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   position: absolute;
+   top: 42%;
+}

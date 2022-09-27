@@ -1,0 +1,26 @@
+.playlist_inner_wrapper {
+    cursor: pointer;
+}
+
+
+.playlistItem_activeColorBG {
+    background: hsla(0,0%,87%,.557) !important;
+    box-shadow: 0px 0px 11px 4px #746b6b61;
+}
+
+
+.yt_image_text_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.yt_image_text_wrapper h4 {
+    margin: 0;
+    font-weight: 700;
+    
+}
+
+.playlist_inner_content {
+    margin-left: 3px;
+    padding-top: 3px;
+}

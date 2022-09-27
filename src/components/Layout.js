@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom'; 
-import {  Container,  Navbar, Text,  Avatar, Image , Button } from '@nextui-org/react';
+import {  Container,  Navbar, Spacer, Image , Button } from '@nextui-org/react';
 
 import ModalX from './ModalX';
 import youtube_logo from '../static/youtube-logo.png'
@@ -52,7 +52,8 @@ const Layout = ({ children }) => {
    
         </Navbar>
 
-        <Container css={{ maxW: "100%", boxSizing: "border-box" }}>
+        <Container >
+          <Spacer y={1}/>
           {children}
           <ModalX visible={visible} closeHandler={closeHandler}/>
         </Container>

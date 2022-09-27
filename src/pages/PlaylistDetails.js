@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import RootLayoutWrapper from './RootLayoutWrapper';
+import PlaylistItemDetail from '../components/PlaylistItemDetail';
 
 const PlaylistDetails = () => {
 
@@ -9,7 +10,7 @@ const PlaylistDetails = () => {
     return (
         <RootLayoutWrapper>
             <div>
-                <h1>Hello {id}</h1>
+                <PlaylistItemDetail/>
             </div>
         </RootLayoutWrapper>
     )
