@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, Grid, Text } from "@nextui-org/react";
 import './playlist_inner_card.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Playlist_Inner_Card = ({ itemIndex, channelTitle, playlist_Item, singleItem, setSingleItem, setItemIndex }) => {
 
@@ -26,10 +28,10 @@ const Playlist_Inner_Card = ({ itemIndex, channelTitle, playlist_Item, singleIte
                     <Grid.Container gap={1} justify="center">
                         <Grid xs={4}>
                             <div className='yt_image_text_wrapper'>
-
-                                <img
+                                <LazyLoadImage
+                                    effect="blur"
                                     src={playlist_Item?.thumbnail}
-                                    alt="Breathing app icon"
+                                    alt="playlist_Item thumbnail"
                                 />
                             </div>
                         </Grid>
