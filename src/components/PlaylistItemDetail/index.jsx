@@ -31,9 +31,9 @@ const PlaylistItemDetail = () => {
                         <div className="video_chanel_wrapper">
                             <Avatar
                                 className='video_chanel_avatar'
-                                size="lg"
-                                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                                color="primary"
+                                text={channelTitle}
+                                color="success"
+                                textColor="white"
                                 bordered
                             />
                             <h6>{channelTitle}</h6>

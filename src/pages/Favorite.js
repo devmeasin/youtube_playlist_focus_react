@@ -12,11 +12,10 @@ const Favorite = () => {
     return (
         <RootLayoutWrapper>
             <div>
-            {
-                favoriteItem_Array.length > 0 ? <PlaylistGrid  playlist_items={favoriteItem_Array}/> :
-                <NoData title="No Favorite Playlist Found! "/>
-            }
-                 
+                {
+                    favoriteItem_Array.length > 0 ? <PlaylistGrid playlist_items={favoriteItem_Array} /> :
+                        <NoData title="No Favorite Playlist Found! " />
+                }
             </div>
         </RootLayoutWrapper>
     )
