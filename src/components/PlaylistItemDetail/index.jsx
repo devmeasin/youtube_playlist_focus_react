@@ -70,11 +70,3 @@ const PlaylistItemDetail = () => {
 }
 
 export default PlaylistItemDetail;
-
-
-
-{/* <Card css={{ padding: "0px" }}>
-                        <Card.Body css={{ padding: "0px" }}>
-                            <YoutubePlayer videoID={videoIDX} />
-                        </Card.Body>
-                    </Card> */}

@@ -4,23 +4,22 @@ import './nodata.css';
 import nodata from '../../static/nodata.json'
 
 
-const NoData = ({ title = "" }) => {
+const NoData = ({ title = "" , animation_data }) => {
 
-    const options = {
-        loop: true,
-        autoplay: true,
-        animationData: nodata,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
+    // const options = {
+    //     loop: true,
+    //     autoplay: true,
+    //     animationData: animation_data || nodata,
+    //     rendererSettings: {
+    //         preserveAspectRatio: "xMidYMid slice"
+    //     }
+    // };
 
     return (
         <div className='nodata_wrapper'>
             <div className="nodata_inner">
                 <Lottie
-                    
-                    animationData={nodata} loop={true}
+                    animationData={animation_data || nodata} loop={true}
                 />
                 <h3>{title}</h3>
             </div>
