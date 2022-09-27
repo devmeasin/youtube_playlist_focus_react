@@ -46,6 +46,7 @@ const PlaylistItemDetail = () => {
                             css={{
                                 bgBlur: "#ffffff66",
                                 zIndex: 1,
+                                display: "block"
                             }}
                         >
                             <h5 color='#ffff'>{playlistTitle}</h5>

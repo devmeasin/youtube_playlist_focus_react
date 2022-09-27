@@ -12,7 +12,6 @@ const PlaylistDetails = () => {
 
     const playlistItems = useSelector((state) => state.playlist_items.play_list_item);
     const playlist_item = playlistItems[id];
-    console.log('Just Add', playlist_item)
 
     return (
         <RootLayoutWrapper>

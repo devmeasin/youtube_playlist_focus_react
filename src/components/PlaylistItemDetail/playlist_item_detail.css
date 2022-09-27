@@ -44,7 +44,7 @@
 }
 
 .playlist_item_header {
-    display: block;
+    display: block !important;
     padding: 7px 10px;
     box-shadow: 0px 0px 20px 4px #0000003d;
 }

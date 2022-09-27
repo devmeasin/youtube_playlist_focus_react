@@ -3,6 +3,7 @@ import RootLayoutWrapper from './RootLayoutWrapper';
 import PlaylistGrid from '../components/PlaylistGrid';
 import { useSelector } from 'react-redux';
 import NoData from '../components/NoData';
+import favorite_icon from '../static/favorite-heart.json'
 
 const Favorite = () => {
 
@@ -14,7 +15,7 @@ const Favorite = () => {
             <div>
                 {
                     favoriteItem_Array.length > 0 ? <PlaylistGrid playlist_items={favoriteItem_Array} /> :
-                        <NoData title="No Favorite Playlist Found! " />
+                        <NoData title="No Favorite Playlist Found! " animation_data={favorite_icon} />
                 }
             </div>
         </RootLayoutWrapper>
