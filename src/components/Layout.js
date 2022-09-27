@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom'; 
 import {  Container,  Navbar, Spacer, Image , Button } from '@nextui-org/react';
+import { useLocation } from 'react-router-dom'; 
 
 import ModalX from './ModalX';
 import youtube_logo from '../static/youtube-logo.png'
@@ -8,11 +9,11 @@ import youtube_logo from '../static/youtube-logo.png'
 const Layout = ({ children }) => {
 
   const [visible, setVisible] = useState(false);
+  let location = useLocation();
   const handler = () => setVisible(true);
   const closeHandler = () => {
     setVisible(false);
   };
-
 
   return (
     
@@ -25,11 +26,11 @@ const Layout = ({ children }) => {
    
    
           <Navbar.Content hideIn="xs" variant="highlight" enableCursorHighlight={true} activeColor="error">
-            <Navbar.Link> 
-                <Link className='link_tag_design' to="/recent"> Recent </Link> 
+            <Navbar.Link as={Link}> 
+                <Link className={`link_tag_design ${location.pathname === '/recent' && 'is-active'}`} to="/recent"> Recent </Link> 
             </Navbar.Link>
-            <Navbar.Link> 
-                <Link className='link_tag_design' to="/favorite"> Favorite </Link>
+            <Navbar.Link as={Link}> 
+                <Link className={`link_tag_design ${location.pathname === '/favorite' && 'is-active'}`} to="/favorite"> Favorite </Link>
             </Navbar.Link>
             <Button color="success" auto shadow css={{marginLeft:'10px' , }} onPress={handler} > Add Playlist </Button> 
           </Navbar.Content>
@@ -39,10 +40,10 @@ const Layout = ({ children }) => {
           <Navbar.Collapse disableAnimation="disableAnimation">
    
               <Navbar.CollapseItem activeColor="error" >
-                    <Link className='link_tag_design' to="/recent"> Recent </Link> 
+                    <Link className={`link_tag_design ${location.pathname === '/recent' && 'is-active'}`} to="/recent"> Recent </Link> 
               </Navbar.CollapseItem>
               <Navbar.CollapseItem activeColor="error">
-                    <Link className='link_tag_design' to="/favorite"> Favorite </Link>
+                    <Link className={`link_tag_design ${location.pathname === '/favorite' && 'is-active'}`} to="/favorite"> Favorite </Link>
               </Navbar.CollapseItem>
               <Navbar.CollapseItem activeColor="error">
                   <Button color="success" auto shadow onPress={handler}> Add Playlist </Button>
@@ -54,8 +55,8 @@ const Layout = ({ children }) => {
 
         <Container >
           <Spacer y={1}/>
-          {children}
-          <ModalX visible={visible} closeHandler={closeHandler}/>
+            {children}
+           <ModalX visible={visible} closeHandler={closeHandler}/>
         </Container>
 
     </div>

@@ -28,6 +28,9 @@ body {
     display: grid;
     transition: 0.3s ease-in-out;
 }
+.is-active {
+  color: #f8007c;
+}
 
 .link_tag_design:hover {
   color: #f8007c;

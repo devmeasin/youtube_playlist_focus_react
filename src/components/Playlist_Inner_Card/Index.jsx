@@ -14,7 +14,6 @@ const Playlist_Inner_Card = ({ itemIndex, channelTitle, playlist_Item, singleIte
         <div className="playlist_inner_wrapper" onClick={setItemHandler}>
             <Card css={{ w: "100%", marginBottom: "5px" }} className={singleItem.videoId === playlist_Item?.videoId ? 'playlistItem_activeColorBG' : ''} >
                 <Card.Body
-                    isBlurred
                     css={{
                         overflow: 'hidden',
                         padding: "0px",
@@ -56,6 +55,3 @@ const Playlist_Inner_Card = ({ itemIndex, channelTitle, playlist_Item, singleIte
 }
 
 export default Playlist_Inner_Card;
-
-
-// substr(0,55) + '...'

@@ -18,8 +18,6 @@ const PlaylistItemDetail = () => {
     const playlist_Items = playlistItems[playlistID]?.playlistItem || [];
     const { playlistTitle, channelTitle } = playlistItems[playlistID];
 
-    console.log(playlistItems);
-
     return (
         <div>
             <Grid.Container gap={1} justify="center">
@@ -44,7 +42,6 @@ const PlaylistItemDetail = () => {
                 <Grid xs={12} sm={5} md={4}>
                     <Card css={{ $$cardColor: '#ffffff66' }}>
                         <Card.Header
-                            isBlurred
                             className="playlist_item_header"
                             css={{
                                 bgBlur: "#ffffff66",
@@ -60,7 +57,7 @@ const PlaylistItemDetail = () => {
                             <div className="playlist_item_detail_on_scroll">
                                 {
                                     playlist_Items.map((item, index) => (
-                                        <Playlist_Inner_Card itemIndex={index + 1} channelTitle={channelTitle} playlist_Item={item} singleItem={singleItem} setSingleItem={setSingleItem} setItemIndex={setItemIndex} />
+                                        <Playlist_Inner_Card key={index} itemIndex={index + 1} channelTitle={channelTitle} playlist_Item={item} singleItem={singleItem} setSingleItem={setSingleItem} setItemIndex={setItemIndex} />
                                     ))
                                 }
                             </div>

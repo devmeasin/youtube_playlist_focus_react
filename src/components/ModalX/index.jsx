@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Input, Loading, Button, Text } from "@nextui-org/react";
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { notifyDefault, notifySuccess, notifyError } from '../../utils/toast';
 import { getPlaylist } from '../../api'
 import { changeStatus, addPlaylist } from '../../store/playlistItemSlice';
 import { STATUS } from '../../utils/config/status';
@@ -9,41 +10,40 @@ import { STATUS } from '../../utils/config/status';
 const ModelX = ({ visible, closeHandler }) => {
 
     const [playlist_id, setPlaylistId] = useState('');
+    const play_list_item = useSelector((state) => state.playlist_items.play_list_item);
     const status = useSelector((state) => state.playlist_items.status);
     const dispatch = useDispatch();
 
-    const notify = (func, text) => {
-
-        const options = {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored"
-        }
-       return func === 'error' ? toast.error(text, options) : toast.success(text, options, );
-
-    };
 
     const getPlaylistItem = async () => {
 
-        if (playlist_id) {
-               dispatch(changeStatus(STATUS.LOADING));
+        const playlistID = playlist_id.split('=')[1] || playlist_id;
+
+        if (playlistID) {
+
+            dispatch(changeStatus(STATUS.LOADING));
+
+            if (play_list_item[playlistID]) {
+                notifyDefault('Playlist Item Already Added! 😎');
+                setPlaylistId('');
+                setTimeout(() => {
+                    dispatch(changeStatus(STATUS.IDLE));
+                }, 2000)
+                return;
+            }
+
             try {
-                const data = await getPlaylist(playlist_id);
+                const data = await getPlaylist(playlistID);
                 if (data) {
                     dispatch(addPlaylist(data));
                     setPlaylistId('');
                     closeHandler();
                     dispatch(changeStatus(STATUS.IDLE));
-                    notify('success', 'Successfully Add Playlist Item');
+                    notifySuccess('Successfully Add Playlist Item');
                 }
             } catch (error) {
                 dispatch(changeStatus(STATUS.ERORR));
-                notify('error', 'Invalid Playlist ID');
+                notifyError(error.message);
             }
         }
     };
@@ -84,7 +84,7 @@ const ModelX = ({ visible, closeHandler }) => {
                     </Button>
                 </Modal.Body>
             </Modal>
-            <ToastContainer 
+            <ToastContainer
                 position="bottom-center"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -94,8 +94,8 @@ const ModelX = ({ visible, closeHandler }) => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                
-             />
+
+            />
         </div>
     )
 }
