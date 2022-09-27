@@ -40,7 +40,6 @@ const ModelX = ({ visible, closeHandler }) => {
                     closeHandler();
                     dispatch(changeStatus(STATUS.IDLE));
                     notifySuccess('Successfully Add Playlist Item');
-                    console.log(process.env.REACT_APP_YOUTUBE_KEY);
                 }
             } catch (error) {
                 dispatch(changeStatus(STATUS.ERORR));
